@@ -13,6 +13,7 @@
 4、按照提示填写信息
 
 其中课程号是课程名称前的那一串数字
+
 注意看课堂名称后面有没有(2)
 ![image](https://github.com/zhangxm99/nenuschedulebattel/blob/master/pic.png)
 
