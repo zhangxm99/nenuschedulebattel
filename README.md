@@ -10,6 +10,10 @@
 
 3、输入账号和密码（账号是你邮箱@前的部分）
 
-4、输入你想抢的课程号(在课程名称前面)
+4、按照提示填写信息
+
+其中课程号是课程名称前的那一串数字
+注意看课堂名称后面有没有(2)
+![image](https://github.com/zhangxm99/nenuschedulebattel/blob/master/pic.png)
 
 输完记住敲回车
