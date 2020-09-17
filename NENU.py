@@ -5,6 +5,7 @@ import getpass
 
 #The server address may change.
 server = '222.27.96.95'
+jx0502zbid = 109
 
 headers={
     'origin': 'http://' +str(server),
@@ -13,7 +14,7 @@ headers={
     'user-agent': "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36",
     'accept': "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3",
     'cache-control': "no-cache",
-    'Referer': 'http://'+str(server)+'/qzxk/xk/getXkInfo?jx0502zbid=108&jx0502id=47&sfktx=1&sfkxk=1'
+    'Referer': 'http://'+str(server)+'/qzxk/xk/getXkInfo?jx0502zbid='+str(jx0502zbid)+'&jx0502id=47&sfktx=1&sfkxk=1'
 }
 requests = requests.session()
 requests.keep_alive=False
@@ -39,8 +40,12 @@ def main(account,password):
     url_skip='http://'+str(server)+'/qzxk/xk/AccessToXk'
     res=requests.get(url_skip,headers=headers).text
     print(res)
-    url_show = "http://"+str(server)+"/qzxk/xk/getXkInfo?jx0502zbid=108&jx0502id=47&sfktx=1&sfkxk=1"
-    print(requests.get(url_show,headers = headers).text)
+    url_show =  "http://"+str(server)+"/qzxk/xk/getXkInfo?jx0502zbid="+str(jx0502zbid)+"&jx0502id=47&sfktx=1&sfkxk=1"
+    res = requests.get(url_show,headers = headers).text
+    print(res)
+    if "课程性质" not in res:
+        print('Something is wrong,check the url')
+        exit(0)
 
     url_2 = 'http://'+str(server)+'/qzxk/xk/processXk'
 
@@ -54,7 +59,7 @@ def main(account,password):
         data = {
         'jx0502id': '47',
         'jx0404id': code,
-        'jx0502zbid': '108'
+        'jx0502zbid': str(jx0502zbid)
         }
         data_list.append(data)
     tasks = [grequests.post(url_2,headers=headers,data=data,session=requests,timeout = (3,0.01)) for data in data_list]
