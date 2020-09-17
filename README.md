@@ -18,3 +18,8 @@
 ![image](https://github.com/zhangxm99/nenuschedulebattel/blob/master/pic.png)
 
 输完记住敲回车
+
+## 注意事项
+1、url_show里面的jx0502zbid码每次会变，这个码可以在选课界面的网址栏里找到
+
+2、server在本部和净月不一样，注意留意更改
